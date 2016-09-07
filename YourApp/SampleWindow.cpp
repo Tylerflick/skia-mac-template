@@ -23,6 +23,7 @@ SampleWindow::SampleWindow(void* hwnd)
     fRotationAngle = 0;
     this->setTitle();
     this->setUpBackend();
+    this->fTextLocation = SkIPoint::Make(this->width()/2, this->height()/2);
 }
 
 SampleWindow::~SampleWindow() {
@@ -65,8 +66,6 @@ bool SampleWindow::setUpBackend() {
     SkASSERT(NULL != fContext);
 
     this->setUpGpuBackedSurface();
-    
-    this->fTextLocation = SkIPoint::Make(0, 0);
     return true;
 }
 
@@ -158,11 +157,25 @@ bool SampleWindow::onHandleKey(SkKey key) {
             }
             break;
         default:
-            break;
+            return false;
     }
     return true;
 }
 
+bool SampleWindow::onDispatchClick(int x, int y, Click::State state, void* owner, unsigned modi) {
+    
+    if (x > 0 && x < this->width()) {
+        fTextLocation.fX = x;
+    }
+    if (y > 0 && y < this->height()) {
+        fTextLocation.fY = y;
+    }
+    return true;
+}
+
+bool SampleWindow::onEvent(const SkEvent& evt) {
+    return this->INHERITED::onEvent(evt);
+}
 
 SkOSWindow* create_sk_window(void* hwnd, int , char** ) {
     return new SampleWindow(hwnd);

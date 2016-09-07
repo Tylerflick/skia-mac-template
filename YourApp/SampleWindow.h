@@ -20,6 +20,8 @@ public:
 
     // Changes the device type of the object.
     bool setUpBackend();
+    
+    bool onDispatchClick(int x, int y, Click::State state, void* owner, unsigned modi) override;
 
     DeviceType getDeviceType() const { return fType; }
 
@@ -46,6 +48,8 @@ private:
     void setUpGpuBackedSurface();
     bool onHandleChar(SkUnichar unichar) override;
     bool onHandleKey(SkKey key) override;
+    bool onEvent(const SkEvent& evt) override;
+    
 
     void tearDownBackend();
 
