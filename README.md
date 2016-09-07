@@ -1,8 +1,10 @@
 # skia-mac-template
+[![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
+
+
 A template project for getting started with the [Skia graphics library](https://skia.org) on macOS/OS X
 
-**Warning**
-
+**Warning:**
 This repo is meant to be consumed with gclient, not cloned directly with git.
 
 *For a deeper understanding of the build process checkout [Skia's official sample guide](https://skia.org/user/sample/building).*
