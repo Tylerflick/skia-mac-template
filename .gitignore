@@ -1,1 +1,6 @@
+.vscode
 third_party
+tools
+xcodebuild
+*.xcodeproj
+out
