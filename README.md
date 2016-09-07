@@ -41,6 +41,7 @@ This repo is meant to be consumed with gclient, not cloned directly with git.
  *Note: This repo references a particular commit from the Skia repo. This commit hash can be changed, but in doing so the commit hash references in `DEPS` must be changed to match.*
  
 3. Run `gclient sync`
-4. Execute `src/build/gyp_wrapper` 
-5. Launch the Xcode project, `src/your_app.xcodeproj`
-6. Build and run
+4. Run `git checkout master`
+5. Execute `src/build/gyp_wrapper` 
+6. Launch the Xcode project, `src/your_app.xcodeproj`
+7. Build and run
