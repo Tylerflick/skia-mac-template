@@ -18,7 +18,7 @@ if __name__ == '__main__':
     args.append('--check')
     args.append('-I%s/third_party/skia/gyp/common.gypi' % src)
 
-    args.append(os.path.join(script_dir, '..', 'your_app.gyp'))
+    args.append(os.path.join(script_dir, '..', 'sample_mac_app.gyp'))
 
     print 'Updating projects from gyp files...'
     sys.stdout.flush()

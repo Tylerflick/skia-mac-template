@@ -5,8 +5,8 @@
         'Debug': { },
         'Release': { }
       },
-      'target_name': 'your_app',
-      'product_name': 'YourApp',
+      'target_name': 'sample_mac_app',
+      'product_name': 'SampleMacApp',
       'type': 'executable',
       'mac_bundle': 1,
       'dependencies': [
@@ -24,29 +24,29 @@
         'third_party/skia/src/views/mac',
         'third_party/skia/src/core',
         'third_party/skia/src/codec',
-        'YourApp',
+        'SampleMacApp',
       ],
       'sources': [
-        'YourApp/AppDelegate.mm',
-        'YourApp/AppDelegate.h',
-        'YourApp/main.mm',
-        'YourApp/SampleSkNSView.h',
-        'YourApp/SampleSkNSView.mm',
-        'YourApp/SampleWindow.h',
-        'YourApp/SampleWindow.cpp',
-        'YourApp/<(_target_name)-Bridging-Header.h'
+        'SampleMacApp/AppDelegate.mm',
+        'SampleMacApp/AppDelegate.h',
+        'SampleMacApp/main.mm',
+        'SampleMacApp/SampleSkNSView.h',
+        'SampleMacApp/SampleSkNSView.mm',
+        'SampleMacApp/SampleWindow.h',
+        'SampleMacApp/SampleWindow.cpp',
+        'SampleMacApp/<(_product_name)-Bridging-Header.h'
       ],
       'xcode_settings': {
-        'INFOPLIST_FILE': 'YourApp/Info.plist',
+        'INFOPLIST_FILE': 'SampleMacApp/Info.plist',
         'MACOSX_DEPLOYMENT_TARGET': '10.11',
         'CLANG_ENABLE_MODULES': 'YES',
         'CLANG_ENABLE_OBJC_ARC': 'YES',
-        'SWIFT_OBJC_BRIDGING_HEADER': 'YourApp/<(_target_name)-Bridging-Header.h',
+        'SWIFT_OBJC_BRIDGING_HEADER': 'SampleMacApp/<(_product_name)-Bridging-Header.h',
         'LD_RUNPATH_SEARCH_PATHS': ['@executable_path/../Frameworks', '@loader_path/../Frameworks'],
       },
       'mac_bundle_resources': [
-        'YourApp/Base.lproj/MainMenu.xib',
-        'YourApp/Assets.xcassets',
+        'SampleMacApp/Base.lproj/MainMenu.xib',
+        'SampleMacApp/Assets.xcassets',
       ],
       'link_settings': {
         'libraries': [
