@@ -23,5 +23,8 @@
     delete fWind;
 }
 
+- (void)openFile:(std::string)url {
+    ((SampleWindow*)fWind)->loadPng(url);
+}
 
 @end

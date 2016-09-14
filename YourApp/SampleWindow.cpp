@@ -1,5 +1,6 @@
-#include "SampleWindow.h"
+#include <iostream>
 
+#include "SampleWindow.h"
 #include "gl/GrGLInterface.h"
 #include "GrContext.h"
 #include "SkApplication.h"
@@ -7,6 +8,8 @@
 #include "SkGradientShader.h"
 #include "SkGraphics.h"
 #include "SkGr.h"
+#include "SkPngCodec.h"
+#include "SkStream.h"
 
 void application_init() {
     SkGraphics::Init();
@@ -74,24 +77,21 @@ void SampleWindow::setUpGpuBackedSurface() {
 }
 
 void SampleWindow::drawContents(SkCanvas* canvas) {
-    // Clear background
     canvas->drawColor(SK_ColorWHITE);
+    if (currentBmp.getSize() > 0) {
+        canvas->drawBitmap(currentBmp, 0, 0);
+    }
 
     SkPaint paint;
-    paint.setColor(SK_ColorRED);
 
     // Draw a message with a nice black paint.
-    paint.setFlags(
-            SkPaint::kAntiAlias_Flag |
-            SkPaint::kSubpixelText_Flag  // ... avoid waggly text when rotating.
-            );
-    paint.setColor(SK_ColorGRAY);
+    paint.setFlags(SkPaint::kAntiAlias_Flag | SkPaint::kSubpixelText_Flag);
+    paint.setColor(SK_ColorBLUE);
     paint.setTextSize(44);
 
     static const char message[] = "Hello World!";
     
     canvas->drawText(message, strlen(message), fTextLocation.fX, fTextLocation.fY, paint);
-    
 
     canvas->save();
 }
@@ -120,6 +120,8 @@ void SampleWindow::draw(SkCanvas* canvas) {
 }
 
 void SampleWindow::onSizeChange() {
+    fTextLocation.fX = this->width()/2;
+    fTextLocation.fY = this->height()/2;
     this->setUpGpuBackedSurface();
 }
 
@@ -175,6 +177,20 @@ bool SampleWindow::onDispatchClick(int x, int y, Click::State state, void* owner
 
 bool SampleWindow::onEvent(const SkEvent& evt) {
     return this->INHERITED::onEvent(evt);
+}
+
+void SampleWindow::loadPng(std::string path) {
+    SkBitmap bitmap;
+    auto stream = SkStream::NewFromFile(path.c_str());
+    if (stream == NULL) {
+        // TODO: Alert user of failed loading
+        return;
+    }
+    auto codec = SkPngCodec::NewFromStream(stream);
+    const auto imageInfo = codec->getInfo();
+    
+    currentBmp.allocPixels(codec->getInfo());
+    codec->getPixels(codec->getInfo(), currentBmp.getPixels(), currentBmp.rowBytes());
 }
 
 SkOSWindow* create_sk_window(void* hwnd, int , char** ) {

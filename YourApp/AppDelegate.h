@@ -4,6 +4,7 @@
 
 @interface AppDelegate : NSObject <NSApplicationDelegate>
 
+- (IBAction)openFile:(NSMenuItem *)sender;
 
 @end
 

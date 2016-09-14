@@ -13,12 +13,17 @@
         'third_party/skia/gyp/skia_lib.gyp:skia_lib',
         'third_party/skia/gyp/views.gyp:views',
         'third_party/skia/gyp/xml.gyp:xml',
+        'third_party/skia/gyp/codec.gyp:codec',
+        'third_party/skia/gyp/libpng.gyp:libpng_static'
       ],
       'include_dirs': [
         'third_party/skia/include/config',
         'third_party/skia/include/core',
         'third_party/skia/include/views',
+        'third_party/skia/include/private',
         'third_party/skia/src/views/mac',
+        'third_party/skia/src/core',
+        'third_party/skia/src/codec',
         'YourApp',
       ],
       'sources': [

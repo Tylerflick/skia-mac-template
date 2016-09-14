@@ -1,6 +1,6 @@
-#ifndef Sampled_DEFINED
-#define Sampled_DEFINED
+#pragma once
 
+#include <string>
 #include "SkSurface.h"
 #include "SkWindow.h"
 
@@ -22,6 +22,8 @@ public:
     bool setUpBackend();
     
     bool onDispatchClick(int x, int y, Click::State state, void* owner, unsigned modi) override;
+    
+    void loadPng(std::string path);
 
     DeviceType getDeviceType() const { return fType; }
 
@@ -50,7 +52,6 @@ private:
     bool onHandleKey(SkKey key) override;
     bool onEvent(const SkEvent& evt) override;
     
-
     void tearDownBackend();
 
     // draw contents
@@ -67,8 +68,8 @@ private:
     sk_sp<SkSurface> fGpuSurface;
     AttachmentInfo fAttachmentInfo;
     const GrGLInterface* fInterface;
+    
+    SkBitmap currentBmp;
 
     typedef SkOSWindow INHERITED;
 };
-
-#endif

@@ -2,4 +2,6 @@
 
 @interface SampleSkNSView : SkNSView
 
+- (void)openFile:(std::string)url;
+
 @end
