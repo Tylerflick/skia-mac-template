@@ -10,8 +10,6 @@
 #include "SampleWindow.h"
 #include <crt_externs.h>
 
-#import "SampleMacApp-Swift.h"
-
 @implementation SampleSkNSView
 
 - (id)initWithDefaults {
@@ -26,11 +24,6 @@
 }
 
 - (void)openFile:(std::string)url {
-    NSString *path = [NSString stringWithCString:url.c_str()
-                                            encoding:[NSString defaultCStringEncoding]];
-    SampleSwiftClass *swiftClass = [[SampleSwiftClass alloc] init];
-    [swiftClass printMessageWithString:path];
-    
     ((SampleWindow*)fWind)->loadPng(url);
 }
 

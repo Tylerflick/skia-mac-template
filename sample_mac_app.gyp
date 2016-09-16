@@ -34,7 +34,6 @@
         'SampleMacApp/SampleSkNSView.mm',
         'SampleMacApp/SampleWindow.h',
         'SampleMacApp/SampleWindow.cpp',
-        'SampleMacApp/Test.swift',
         'SampleMacApp/<(_product_name)-Bridging-Header.h'
       ],
       'xcode_settings': {
