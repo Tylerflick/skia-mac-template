@@ -8,10 +8,9 @@
 
 import Foundation
 
-
-class test {
-    func printMessage(_ message: String) {
-        
-        print(message)
+@objc
+class SampleSwiftClass : NSObject {
+    func printMessage(string: String) {
+        print(string)
     }
 }
