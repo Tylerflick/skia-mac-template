@@ -45,5 +45,5 @@ This repo is meant to be consumed with gclient, not cloned directly with git.
 3. Run `gclient sync`
 4. Run `git checkout master`
 5. Execute `src/build/gyp_wrapper` 
-6. Launch the Xcode project, `src/your_app.xcodeproj`
+6. Launch the Xcode project, `src/sample_mac_app.xcodeproj`
 7. Build and run
