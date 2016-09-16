@@ -1,6 +1,8 @@
 #pragma once
 
 #include <string>
+#include <memory>
+#include <atomic>
 #include "SkSurface.h"
 #include "SkWindow.h"
 
